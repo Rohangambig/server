@@ -1,0 +1,34 @@
+import mongoose from "mongoose";
+import { Component } from "react";
+
+const postSchema = mongoose.Schema({
+    UserId:{
+        type:String,
+        require:true,
+    },
+    firstName:{
+        type:String,
+        require:true,
+    },
+    lastName:{
+        type:String,
+        require:true,
+    },
+    location:String,
+    description:String,
+    picturePath:String,
+    UsePicturePath:String,
+    likes:{
+        type:Map,
+        of:Boolean,
+    },
+    comments:{
+        type:Array,
+        default:[]
+    }
+},{timestamps:true});
+
+
+const Post = mongoose.model('Post',postSchema);
+
+export default Post;
